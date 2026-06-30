@@ -14,9 +14,9 @@ pipeline {
       }
     }
 
-    stage('Install dependencies and test') {
+    stage('Test') {
       steps {
-        sh 'python3 -m pip install --upgrade pip && pip install -r requirements.txt && pytest -q'
+        sh 'docker run --rm -v "$PWD:/app" -w /app python:3.11-slim sh -c "pip install -r requirements.txt && pytest -q"'
       }
     }
 
