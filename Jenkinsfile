@@ -3,8 +3,8 @@ pipeline {
 
   environment {
     DOCKER_IMAGE = 'mca065/python_app:latest'
-    DOCKER_USER = env.DOCKER_USER ?: 'mca065'
-    DOCKER_PASS = env.DOCKER_PASS ?: 'Pavan@0097'
+    DOCKER_USER = "${env.DOCKER_USER ?: 'mca065'}"
+    DOCKER_PASS = "${env.DOCKER_PASS ?: 'Pavan@0097'}"
   }
 
   stages {
