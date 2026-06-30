@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  web:
+    image: mca065/python_app:latest
+    ports:
+      - target: 5000
+        published: 5000
+        protocol: tcp
+        mode: ingress
+    environment:
+      PORT: "5000"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
